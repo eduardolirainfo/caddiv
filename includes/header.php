@@ -9,6 +9,7 @@
     <!--Import materialize.css-->
     <link rel="stylesheet" href="static/assets/css/materialize.min.css">
     <link rel="stylesheet" href="static/assets/css/style.css">
+
 </head>
 <body>
 <?php

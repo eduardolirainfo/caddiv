@@ -1,29 +1,4 @@
-
-<?php
-
-function mask($val, $mask)
-{
-    $maskared = '';
-    $k = 0;
-    for ($i = 0; $i <= strlen($mask) - 1; $i++) {
-        if ($mask[$i] == '#') {
-            if (isset($val[$k]))
-                $maskared .= $val[$k++];
-        } else {
-            if (isset($mask[$i]))
-                $maskared .= $mask[$i];
-        }
-    }
-    return $maskared;
-}
-    if($objPesdiv->tippes === "F"){
-        $document_pes = mask($objPesdiv->document_pes, '###.###.###-##');
-    }else{
-        $document_pes =  mask($objPesdiv->document_pes, '##.###.###/####-##');
-    }
-
-?><div class="container">
-
+<div class="container">
     <div class="left-align">
         <h2><?=TITLE?></h2>
         <a href="index.php"><button class="btn btn-largewaves-effect waves-light green accent-4" type="submit" name="action">Voltar
@@ -52,18 +27,18 @@ function mask($val, $mask)
             <div class="row">
                 <div class="input-field col s5">
                     <i class="material-icons prefix">perm_identity</i>
-                    <input value="<?=$objPesdiv->nome_pes; ?>" placeholder="digite o nome aqui" name="namepes" id="namepes" required="required" type="text" class="validate">
+                    <input placeholder="digite o nome aqui" name="namepes" id="namepes" required="required" type="text" class="validate">
                     <label for="namepes">Nome:</label>
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">portrait</i>
-                    <input value="<?=$document_pes; ?>"  placeholder="Pessoa Física ou Jurídica" name="cpfcnpj" id="cpfcnpj" type="text" required="required" class="validate">
+                    <input  placeholder="Pessoa Física ou Jurídica" name="cpfcnpj" id="cpfcnpj" type="text" required="required" class="validate">
                     <label for="cpfcnpj">CPF/CNPJ: </label>
 
                 </div>
                 <div class="input-field col s3 dtNasc">
                     <i class="material-icons prefix">date_range</i>
-                    <input value="<?=date('d/m/Y', strtotime($objPesdiv->nasc_pes)); ?>" id="dtNasc" placeholder="data de nascimento" class="validate datepicker" required="required" name='dtNasc' type="text">
+                    <input id="dtNasc" placeholder="data de nascimento" class="validate datepicker" required="required" name='dtNasc' type="text">
                     <label for="dtNasc">Data Nasc:</label>
                 </div>
             </div>
@@ -103,19 +78,19 @@ function mask($val, $mask)
             <div class="row">
                 <div class="input-field col s8">
                     <i class="material-icons prefix">mode_edit</i>
-                    <input value="<?=$objPesdiv->desc_title_div; ?>" name="desctitlediv" type="text" id="desctitlediv" size="50" required="required" class="validate">
+                    <input name="desctitlediv" type="text" id="desctitlediv" size="50" required="required" class="validate">
                     <label for="desctitlediv">Descrição do Título</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s3">
                     <i class="material-icons prefix">attach_money</i>
-                    <input value="<?=floatval(filter_var($objPesdiv->val_div, FILTER_SANITIZE_NUMBER_FLOAT)/ 100);?>" id="nValor" placeholder="valor do título" class="validate" required="required" name='nValor' type="text">
+                    <input  id="nValor" placeholder="valor do título" class="validate" required="required" name='nValor' type="text">
                     <label for="nValor">Valor:</label>
                 </div>
                 <div class="input-field col s3">
                     <i class="material-icons prefix">today</i>
-                    <input value="<?=date('d/m/Y', strtotime($objPesdiv->data_venc_div)); ?>" id="dtVenc" placeholder="Vencimento do título" class="validate datepickerTwo" required="required" name='dtVenc' type="text">
+                    <input id="dtVenc" placeholder="Vencimento do título" class="validate datepickerTwo" required="required" name='dtVenc' type="text">
                     <label for="dtVenc">Vencimento:</label>
                 </div>
             </div>
