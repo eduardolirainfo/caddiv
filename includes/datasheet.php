@@ -79,6 +79,26 @@
                     </button></a>
             </div>
             <br><br>
+        <div class="row">
+            <form method="get">
+                <div class="input-field col s6">
+                    <input value="<?=$search ?>" placeholder="Buscar por nome, título, logradouro" id="search" type="search" name="search">
+                    <label class="label-icon" for="search">
+                          </label>
+                    <i class="material-icons" id="searchclose">close</i>
+                </div>
+                <div class="input-field col s4">
+                    <select name="tipo" class="validate">
+                        <option value="">Física/Jurídica</option>
+                        <option value="F" <?=$filterTipoPes=='F'? 'selected' :''; ?>>Física</option>
+                        <option value="J" <?=$filterTipoPes=='J'? 'selected' :''; ?>>Jurídica</option>
+                    </select>
+                 </div>
+                <div class="input-field col s1">
+                    <button class="waves-effect waves-light btn">Filtrar</button>
+                </div>
+               </form>
+        </div>
 
 
             <table class="table striped highlight responsive-table">

@@ -1,4 +1,5 @@
-// SIDENAV
+
+window.onload=function(){
 $(document).ready(function(){
 
     //sidenav lateral
@@ -13,6 +14,26 @@ $(document).ready(function(){
         $( "#alert_box" ).fadeOut( "slow", function() {
         });
     });
+
+    $('select').formSelect();
+
+
+    $('#searchclose').click(function( event ) {
+             $('#search').val("");
+             $('select').prop('selectedIndex',0);
+             $('#search').focus();
+         window.location.replace('index.php');
+    });
+
+
+     $( "#search" ).keyup(function() {
+        if ($(this).val() == "") {
+            window.location.replace('index.php');
+            $('#search').focus();
+        }
+    });
+
+
     $( "#alert_box" ).fadeOut(6000);
     //contador da textarea
 
@@ -35,15 +56,15 @@ $(document).ready(function(){
     $("input[name=tipopes]:checked").next().text();
 
 
-    // //máscara de CPF, CNPJ
-    // var options = {
-    //     onKeyPress: function (cpf, ev, el, op) {
-    //         var masks = ['000.000.000-00'];
-    //         $('#cpfcnpj').mask(masks[0], op);
-    //     }
-    // }
-    //
-    // $('#cpfcnpj').mask('000.000.000-00', options);
+    //máscara de CPF, CNPJ
+    var options = {
+        onKeyPress: function (cpf, ev, el, op) {
+            var masks = ['000.000.000-00'];
+            $('#cpfcnpj').mask(masks[0], op);
+        }
+    }
+
+    $('#cpfcnpj').mask('000.000.000-00', options);
 
 
     $('#tippesfis').click(function() {
@@ -492,26 +513,15 @@ $(document).ready(function(){
 
     });
     $('#send').blur(function(){
-  if ($("input:empty").length === 0){
-      if ($('.formulary').find('invalid')) {
-          $('button').prop("disabled", true);
-      } else {
-          $('button').removeProp("disabled")
-          $('button').prop("disabled", false);
-      }
-  }});
-
-
-
-
-
-
-
-
-
-
-
-
-
+      if ($("input:empty").length === 0){
+          if ($('.formulary').find('invalid')) {
+              $('button').prop("disabled", true);
+          } else {
+              $('button').removeProp("disabled")
+              $('button').prop("disabled", false);
+          }
+      }});
 
     });
+
+}//]]>
